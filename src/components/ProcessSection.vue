@@ -55,14 +55,15 @@
 <style scoped>
 .process-section {
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   background-color: #fafafa;
   background-image: url('/about-section/divider02-recovered.png');
-  background-size: auto; /* Changed from cover to let texture repeat naturally */
+  /* background-size: cover;  */
+  background-size: auto; 
   background-repeat: repeat;
-  background-position: center top;
+  background-position: center center;
   margin-top: -34vh;
-  padding: 50vh 0 27vh; /* Reduced top/bottom padding */
+  padding: 40vh 0 27vh; /* Reduced top/bottom padding */
   /* Top slant matches Parallax bottom (rising right-to-left): fall 18vh from left to right */
   clip-path: polygon(0 18vh, 100% 0, 100% 100%, 0 calc(100% - 18vh));
   z-index: 4;
@@ -129,7 +130,6 @@
 
 .process-photo {
   width: 100%;
-  height: 650px;
   object-fit: cover;
   display: block;
 }

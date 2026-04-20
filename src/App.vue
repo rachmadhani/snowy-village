@@ -4,6 +4,8 @@ import HomeHero from './components/HomeHero.vue'
 import AboutSection from './components/AboutSection.vue'
 import ParallaxSection from './components/ParallaxSection.vue'
 import ProcessSection from './components/ProcessSection.vue'
+import BingsooSection from './components/BingsooSection.vue'
+import ContactSection from './components/ContactSection.vue'
 </script>
 
 <template>
@@ -13,6 +15,8 @@ import ProcessSection from './components/ProcessSection.vue'
     <AboutSection />
     <ParallaxSection />
     <ProcessSection />
+    <BingsooSection />
+    <ContactSection />
   </main>
 </template>
 
