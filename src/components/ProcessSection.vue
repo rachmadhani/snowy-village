@@ -61,8 +61,8 @@
   background-size: auto; /* Changed from cover to let texture repeat naturally */
   background-repeat: repeat;
   background-position: center top;
-  margin-top: -18vh;
-  padding: 30vh 0 24vh; /* Reduced top/bottom padding */
+  margin-top: -34vh;
+  padding: 50vh 0 27vh; /* Reduced top/bottom padding */
   /* Top slant matches Parallax bottom (rising right-to-left): fall 18vh from left to right */
   clip-path: polygon(0 18vh, 100% 0, 100% 100%, 0 calc(100% - 18vh));
   z-index: 4;
