@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar.vue'
 import HomeHero from './components/HomeHero.vue'
 import AboutSection from './components/AboutSection.vue'
 import ParallaxSection from './components/ParallaxSection.vue'
+import ProcessSection from './components/ProcessSection.vue'
 </script>
 
 <template>
@@ -11,8 +12,7 @@ import ParallaxSection from './components/ParallaxSection.vue'
     <HomeHero />
     <AboutSection />
     <ParallaxSection />
-    <!-- Spacer to view the bottom slant transition -->
-    <div style="height: 50vh; background: white;"></div>
+    <ProcessSection />
   </main>
 </template>
 
