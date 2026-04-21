@@ -78,9 +78,9 @@ onUnmounted(() => {
   background-color: #F2F2F2;
   /* Match ContactSection bottom slant: (0, 82%) to (100%, 100%) */
   /* Top of ProductSection must be (0, 0) to (100%, 18vh) */
-  clip-path: polygon(0 0, 100% 18vh, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 18vh, 100% calc(100% - 18vh), 0 100%);
   margin-top: -18vh;
-  padding: 30vh 10% 15vh;
+  padding: 30vh 10% 25vh;
   z-index: 3;
 }
 

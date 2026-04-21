@@ -7,6 +7,7 @@ import ProcessSection from './components/ProcessSection.vue'
 import BingsooSection from './components/BingsooSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import ProductSection from './components/ProductSection.vue'
+import TaiyakiSection from './components/TaiyakiSection.vue'
 </script>
 
 <template>
@@ -19,6 +20,7 @@ import ProductSection from './components/ProductSection.vue'
     <BingsooSection />
     <ContactSection />
     <ProductSection />
+    <TaiyakiSection />
   </main>
 </template>
 
