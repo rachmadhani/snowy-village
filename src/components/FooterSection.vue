@@ -37,7 +37,7 @@
   background-position: center;
   /* Top slant: rises from left to right to match Locations bottom */
   clip-path: polygon(0 36vh, 100% 0, 100% 100%, 0 100%);
-  margin-top: -18vh;
+  margin-top: -32vh;
   padding: 25vh 10% 8vh;
   z-index: 7;
 }

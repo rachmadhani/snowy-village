@@ -106,7 +106,7 @@ onUnmounted(() => {
   margin-top: -58vh;
   padding: 25vh 0 0;
   /* Top slant matches Process bottom (rising right-to-left): fall 18vh from left to right */
-  clip-path: polygon(0 18vh, 100% 0, 100% calc(100% - 18vh), 0 100%);
+  /* clip-path: polygon(0 18vh, 100% 0, 100% calc(100% - 18vh), 0 100%); */
   z-index: 3;
 }
 
