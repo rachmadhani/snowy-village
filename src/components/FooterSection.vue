@@ -79,7 +79,7 @@
 }
 
 .highlight {
-  color: #B2C81B; /* The green accent color */
+  color: #829f45; /* The green accent color */
   font-weight: 500;
 }
 
@@ -89,13 +89,13 @@
 }
 
 .email-link {
-  color: #B2C81B;
+  color: #829f45;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .email-link:hover {
-  color: #B2C81B;
+  color: #829f45;
 }
 
 .divider {
