@@ -101,7 +101,7 @@ onMounted(() => {
 .locations-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 60px 40px;
+  gap: 60px 150px;
 }
 
 .location-card {
@@ -130,13 +130,13 @@ onMounted(() => {
 }
 
 .city-name {
-  font-size: 1.5rem;
+  font-size: 17pt;
   font-weight: 300;
   letter-spacing: 1px;
 }
 
 .card-body {
-  font-size: 0.85rem;
+  font-size: 9pt;
   line-height: 1.6;
   color: #ccc;
   min-height: 120px;
