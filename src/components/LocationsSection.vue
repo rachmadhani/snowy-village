@@ -74,7 +74,7 @@ onMounted(() => {
   width: 100%;
   background-color: #000;
   margin-top: -18vh;
-  padding: 30vh 10% 15vh;
+  padding: 30vh 10% 28vh;
   /* Top slant: rising from left to right to match Drinks bottom */
   clip-path: polygon(0 18vh, 100% 0, 100% 100%, 0 100%);
   z-index: 6;
