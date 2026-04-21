@@ -6,6 +6,7 @@ import ParallaxSection from './components/ParallaxSection.vue'
 import ProcessSection from './components/ProcessSection.vue'
 import BingsooSection from './components/BingsooSection.vue'
 import ContactSection from './components/ContactSection.vue'
+import ProductSection from './components/ProductSection.vue'
 </script>
 
 <template>
@@ -17,6 +18,7 @@ import ContactSection from './components/ContactSection.vue'
     <ProcessSection />
     <BingsooSection />
     <ContactSection />
+    <ProductSection />
   </main>
 </template>
 

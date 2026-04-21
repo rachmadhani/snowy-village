@@ -34,17 +34,17 @@
   width: 100%;
   min-height: 100vh;
   /* Use the same textured paper background as About section */
-  background-color: #fafafa;
+  background-color: #F2F2F2;
   background-image: url('/about-section/divider02-recovered.png');
   background-size: cover;
   background-position: center top;
   
   /* Negative margin to overlap with Bingsoo section's bottom slant */
-  margin-top: -18vh;
-  padding: 25vh 10% 12vh;
+  margin-top: -30vh;
+  padding: 35vh 10% 32vh;
   
   /* Top slant falls from left to right to match Bingsoo bottom edge precisely */
-  clip-path: polygon(0 18vh, 100% 0, 100% 100%, 0 100%);
+  /* clip-path: polygon(0 18vh, 100% 0, 100% 100%, 0 100%); */
   z-index: 2;
   color: #111;
 }
