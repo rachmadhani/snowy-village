@@ -2,8 +2,6 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const sectionRef = ref<HTMLElement | null>(null);
-const titleRef = ref<HTMLElement | null>(null);
-const listRef = ref<HTMLElement | null>(null);
 
 const parallaxOffset = ref(0);
 const isVisible = ref(false);
@@ -50,12 +48,12 @@ onUnmounted(() => {
     <div class="drinks-overlay">
       <div class="drinks-container">
         <!-- Left Side: Title -->
-        <div class="title-column" ref="titleRef" :class="{ 'animate-left': isVisible }">
+        <div class="title-column" :class="{ 'animate-left': isVisible }">
           <img src="/parallax-2-slide/parallax-2-title.svg" alt="Our Drinks" class="drinks-title-svg" />
         </div>
 
         <!-- Right Side: Drink Lists -->
-        <div class="lists-column" ref="listRef" :class="{ 'animate-right': isVisible }">
+        <div class="lists-column" :class="{ 'animate-right': isVisible }">
           <div class="drink-category">
             <img src="/parallax-2-slide/parallax-2-description-1.svg" alt="Hot Coffee & Tea" class="category-svg" />
           </div>
