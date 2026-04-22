@@ -18,32 +18,26 @@
   --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ==========================================================================
+   Scoped Landing Page Styles
+   These only apply inside .landing-page to avoid conflicts with admin.
+   ========================================================================== */
 
-body {
+.landing-page {
   font-family: var(--font-main);
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-}
-
-#app {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-/* Typography — weight/line-height only; color comes from each section (avoids light-on-dark globals on light panels like About) */
-h1,
-h2,
-h3,
-h4 {
+/* Typography — scoped to landing page */
+.landing-page h1,
+.landing-page h2,
+.landing-page h3,
+.landing-page h4 {
   font-weight: 700;
   line-height: 1.1;
 }
