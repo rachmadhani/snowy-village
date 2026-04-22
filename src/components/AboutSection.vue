@@ -13,7 +13,15 @@
         </div>
 
         <div class="about-paragraphs">
-          <img src="/about-section/about-description.svg" alt="About Description" class="about-description" />
+          <p class="about-desc-text">
+            Snowy Village is leading the culture of Korean traditional dessert as the leading Korean dessert café brand in USA.
+          </p>
+          <p class="about-desc-text">
+            Introducing a healthy and fresh Korean desserts, new breed of dessert cafe; tradition meets modern 21st century; various healthy desserts that are creative and popular made with Korean traditional food ingredients of the four seasons are served.
+          </p>
+          <p class="about-desc-text">
+            We continue to challenge the market and develop innovative items. Snowy Village stands at top, as being number one in North America, a result of the efforts that we make the place where our customers sympathize and enjoy to stay
+          </p>
         </div>
       </div>
 
@@ -42,7 +50,7 @@
 
         <div class="comp-footer">
           <img src="/about-section/about-cake-description.svg" class="comp-caption" alt="Healthy Korean dessert" />
-          <img src="/about-section/snowy-village-logos-cake.svg" class="comp-logo" alt="Snowy Village" />
+          <img src="/hero-image/SnowyVillage.jpg" class="comp-logo" alt="Snowy Village" />
         </div>
       </div>
 
@@ -117,11 +125,14 @@
   margin: 0;
 }
 
-.about-description {
-  width: 594px;
-  max-width: 100%;
-  height: auto;
-  filter: brightness(0.2);
+.about-desc-text {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  max-width: 650px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 /* ── Right column: cake composition ── */

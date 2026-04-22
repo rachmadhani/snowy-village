@@ -57,7 +57,7 @@ onUnmounted(() => {
                 <img src="/bingsoo-section/bingsoo-green-circle.svg" class="dot" alt="" />
                 <img src="/bingsoo-section/bingsoo-title-1.svg" class="title-svg" alt="Fresh Toppings" />
               </div>
-              <img src="/bingsoo-section/bingsoo-description-1.svg" class="description-svg" alt="Toppings description" />
+              <p class="description-text">We have a wide range of toppings. From fresh fruits to chocolate and sweet beans.</p>
             </div>
             <div class="pointer-line line-1"></div>
           </div>
@@ -69,7 +69,7 @@ onUnmounted(() => {
                 <img src="/bingsoo-section/bingsoo-green-circle.svg" class="dot" alt="" />
                 <img src="/bingsoo-section/bingsoo-title-2.svg" class="title-svg" alt="Great Combinations" />
               </div>
-              <img src="/bingsoo-section/bingsoo-description-2.svg" class="description-svg" alt="Combinations description" />
+              <p class="description-text">In Snowy Village we never stop innovating. We made sure that every ingredients in our products compliment each other perfectly.</p>
             </div>
             <div class="pointer-line line-2"></div>
           </div>
@@ -81,7 +81,7 @@ onUnmounted(() => {
                 <img src="/bingsoo-section/bingsoo-green-circle.svg" class="dot" alt="" />
                 <img src="/bingsoo-section/bingsoo-title-3.svg" class="title-svg" alt="Silky Snowy Base" />
               </div>
-              <img src="/bingsoo-section/bingsoo-description-3.svg" class="description-svg" alt="Base description" />
+              <p class="description-text">We only use 100% Natural milk and this makes our bingsoo silky smooth!</p>
             </div>
             <div class="pointer-line line-3"></div>
           </div>
@@ -106,7 +106,7 @@ onUnmounted(() => {
   margin-top: -58vh;
   padding: 25vh 0 0;
   /* Top slant matches Process bottom (rising right-to-left): fall 18vh from left to right */
-  clip-path: polygon(0 18vh, 100% 0, 100% calc(100% - 18vh), 0 100%);
+  /* clip-path: polygon(0 18vh, 100% 0, 100% calc(100% - 18vh), 0 100%); */
   z-index: 3;
 }
 
@@ -200,10 +200,14 @@ onUnmounted(() => {
   width: 177px;
 }
 
-.description-svg {
-  height: auto;
+.description-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #333;
   max-width: 201px;
-  opacity: 0.8;
+  margin: 0;
+  font-weight: 400;
+  opacity: 0.9;
 }
 
 /* Positioning */

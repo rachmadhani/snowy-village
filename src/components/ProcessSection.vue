@@ -13,8 +13,12 @@
         <!-- Step 01 -->
         <div class="process-row row-1">
           <div class="text-col">
-            <div class="svg-container">
-              <img src="/process-section/process-1.svg" class="process-step-svg" alt="01 Fresh Fruits" />
+            <div class="process-card">
+              <div class="step-badge">01</div>
+              <div class="card-content">
+                <h3 class="step-title">Fresh Fruits local + international</h3>
+                <p class="step-body">We get our fresh fruit supplies from local farmers in season and international suppliers when out of season.</p>
+              </div>
             </div>
           </div>
           <div class="image-col">
@@ -25,8 +29,12 @@
         <!-- Step 02 -->
         <div class="process-row row-2">
           <div class="text-col">
-            <div class="svg-container">
-              <img src="/process-section/process-2.svg" class="process-step-svg" alt="02 Fresh Milk" />
+            <div class="process-card">
+              <div class="step-badge">02</div>
+              <div class="card-content">
+                <h3 class="step-title">Fresh Milk 100% Natural milk</h3>
+                <p class="step-body">We only use 100% Natural milk for all of our bingsoo products. This gives our bingsoo a smooth and silky texture,</p>
+              </div>
             </div>
           </div>
           <div class="image-col">
@@ -37,8 +45,12 @@
         <!-- Step 03 -->
         <div class="process-row row-3">
           <div class="text-col">
-            <div class="svg-container">
-              <img src="/process-section/process-3.svg" class="process-step-svg" alt="03 Fresh Cream" />
+            <div class="process-card">
+              <div class="step-badge">03</div>
+              <div class="card-content">
+                <h3 class="step-title">Fresh Cream sweetened cream</h3>
+                <p class="step-body">We make sure that we only use the freshest whipped cream to compliment our bingsoo products.</p>
+              </div>
             </div>
           </div>
           <div class="image-col">
@@ -101,22 +113,65 @@
   margin-bottom: -93px; /* Slight overlap for slanted images */
 }
 
-/* Texture/SVG side */
+/* Texture/Card side */
 .text-col {
   flex: 1;
   display: flex;
   justify-content: center;
   padding: 0 5%;
+  z-index: 5;
 }
-
-.svg-container {
+ 
+.process-card {
+  position: relative;
   width: 440px;
   max-width: 100%;
+  border: 1.5px solid #111;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 50px 40px 40px;
+  text-align: left;
 }
-
-.process-step-svg {
-  width: 100%;
-  height: auto;
+ 
+.step-badge {
+  position: absolute;
+  top: -17px;
+  left: 37px;
+  width: 45px;
+  height: 30px;
+  background: #111;
+  color: #C5D82D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  z-index: 6;
+}
+ 
+.step-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #111;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  line-height: 1.1;
+}
+ 
+.step-subtitle {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  text-transform: lowercase;
+  margin-bottom: 24px;
+}
+ 
+.step-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
 }
 
 /* Photo side */

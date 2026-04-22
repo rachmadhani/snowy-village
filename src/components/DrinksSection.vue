@@ -55,10 +55,25 @@ onUnmounted(() => {
         <!-- Right Side: Drink Lists -->
         <div class="lists-column" :class="{ 'animate-right': isVisible }">
           <div class="drink-category">
-            <img src="/parallax-2-slide/parallax-2-description-1.svg" alt="Hot Coffee & Tea" class="category-svg" />
+            <div class="category-header">
+              <div class="category-badge">01</div>
+              <h3 class="category-title">Hot Coffee & Tea</h3>
+            </div>
+            <p class="drink-list">
+              Caramel Macchiato, Cafe Mocha, Cafe Latte, Cappuccino, Americano, Espresso, 
+              Affogato, Hot Chocolate, Red Bean Latte, Green Tea Latte, 
+              Green Tea, Jasmine Tea, Chamomile Tea, Earl Grey Tea
+            </p>
           </div>
           <div class="drink-category">
-            <img src="/parallax-2-slide/parallax-2-description-2.svg" alt="Iced Coffee & Tea" class="category-svg" />
+            <div class="category-header">
+              <div class="category-badge">02</div>
+              <h3 class="category-title">Iced Coffee & Tea</h3>
+            </div>
+            <p class="drink-list">
+              Iced Caramel Macchiato, Iced Cafe Mocha, Iced Cafe Latte, 
+              Iced Americano, Red Bean Smoothie
+            </p>
           </div>
         </div>
       </div>
@@ -137,7 +152,7 @@ onUnmounted(() => {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 100px;
   opacity: 0;
   transform: translateX(50px);
   transition: all 1s ease-out;
@@ -149,15 +164,48 @@ onUnmounted(() => {
   transform: translateX(0);
 }
 
-.drink-category {
-  width: 100%;
-  max-width: 500px;
+.category-header {
+  /* display: flex; */
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
 }
-
-.category-svg {
-  width: 484px;
-  height: auto;
-  filter: drop-shadow(0 0 15px rgba(0,0,0,0.3));
+ 
+.category-badge {
+  width: 30px;
+  height: 28px;
+  background: #C5D82D;
+  /* border-radius: 50%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  border-bottom-left-radius: 40%;
+  border-top-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  border-top-right-radius: 40%;
+  margin-bottom: 20px;
+}
+ 
+.category-title {
+  font-size: 24px;
+  font-weight: 300;
+  color: #C5D82D;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+ 
+.drink-list {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #eee;
+  font-weight: 200;
+  max-width: 440px;
+  margin: 0;
+  opacity: 0.9;
 }
 
 /* Responsive */

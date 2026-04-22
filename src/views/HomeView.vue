@@ -22,7 +22,7 @@ import FooterSection from '@/components/FooterSection.vue'
       <ParallaxSection />
       <ProcessSection />
       <BingsooSection />
-      <ContactSection />
+      <!-- <ContactSection /> -->
       <ProductSection />
       <TaiyakiSection />
       <DrinksSection />

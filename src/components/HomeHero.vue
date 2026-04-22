@@ -43,7 +43,7 @@ onUnmounted(() => {
     <div class="overlay">
       <!-- Left Logo -->
       <div class="logo-wrapper animate-fade-in">
-        <img src="/hero-image-content/main_logo.png" alt="Snowy Village Logo" class="main-logo" />
+        <img src="/hero-image/SnowyVillageHD.jpg" alt="Snowy Village Logo" class="main-logo" />
       </div>
 
       <!-- Right Content -->

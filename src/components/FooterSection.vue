@@ -18,9 +18,9 @@
         
         <div class="divider"></div>
 
-        <p class="bottom-contact">
+        <!-- <p class="bottom-contact">
           28 Royal Ave, New Westminister BC | TEL. <span class="highlight">+1 604.553.3550</span>, <span class="highlight">+1 778.837.6939</span> | <a href="mailto:info@snowyvillages.ca" class="highlight email-link">info@snowyvillages.ca</a>
-        </p>
+        </p> -->
         <p class="copyright">Copyright(C) <b>SNOWY VILLAGE</b> 2019 All Rights Reserved.</p>
       </div>
     </div>
