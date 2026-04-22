@@ -4,7 +4,7 @@ import AdminWrapper from '../admin/AdminWrapper.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(_to, _from, savedPosition) {
     return savedPosition || { left: 0, top: 0 }
   },
   routes: [
@@ -100,7 +100,7 @@ const router = createRouter({
   ],
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   if (to.meta.title) {
     document.title = `${to.meta.title} | Snowy Village Admin`
   } else if (to.path.startsWith('/admin')) {

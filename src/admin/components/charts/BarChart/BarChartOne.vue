@@ -6,8 +6,9 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import type { ApexOptions } from 'apexcharts'
 import VueApexCharts from 'vue3-apexcharts'
 
 const series = ref([
@@ -17,7 +18,7 @@ const series = ref([
   },
 ])
 
-const chartOptions = ref({
+const chartOptions = ref<ApexOptions>({
   colors: ['#465fff'],
   chart: {
     fontFamily: 'Outfit, sans-serif',
@@ -70,11 +71,13 @@ const chartOptions = ref({
     horizontalAlign: 'left',
     fontFamily: 'Outfit',
     markers: {
-      radius: 99,
+      size: 0,
     },
   },
   yaxis: {
-    title: false,
+    title: {
+      text: undefined,
+    },
   },
   grid: {
     yaxis: {

@@ -1,1 +1,7 @@
 declare module 'jsvectormap'
+declare module 'swiper/css'
+declare module 'swiper/css/navigation'
+declare module 'swiper/css/pagination'
+declare module 'jsvectormap/dist/maps/world'
+declare module '@admin/composables/useSidebar'
+declare module '@admin/icons'

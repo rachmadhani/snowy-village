@@ -76,5 +76,5 @@ const options = ref([
   { text: 'Option 4', selected: false },
 ])
 
-const selected = computed(() => options.value.filter((option) => option.selected))
+const _selected = computed(() => options.value.filter((option) => option.selected))
 </script>

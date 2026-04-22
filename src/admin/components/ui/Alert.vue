@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { SuccessIcon, ErrorIcon, WarningIcon, InfoCircleIcon } from '@admin/icons'
-import { computed } from 'vue'
+import { } from 'vue'
 
 interface AlertProps {
   variant: 'success' | 'error' | 'warning' | 'info'
