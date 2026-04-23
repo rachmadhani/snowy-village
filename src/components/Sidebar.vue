@@ -45,7 +45,7 @@ const closeMenu = () => {
         <div class="overlay-inner">
           <!-- Header -->
           <header class="overlay-header">
-            <img src="/hero-image/SnowyVillageHD.jpg" alt="Snowy Village Logo" class="sidebar-logo" />
+            <img src="/hero-image/SnowyVillage_circle_logo.png" alt="Snowy Village Logo" class="sidebar-logo" />
             <button class="close-btn" @click="closeMenu">
               <img src="/sidebar/close-sidebar.png" alt="Close" class="close-icon" />
             </button>
@@ -208,7 +208,7 @@ const closeMenu = () => {
 }
 
 .sidebar-logo {
-  height: 80px;
+  height: 100px;
   width: auto;
 }
 
