@@ -14,6 +14,16 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: '/franchise',
+      name: 'franchise',
+      component: () => import('../views/FranchiseView.vue'),
+    },
+    {
+      path: '/careers',
+      name: 'careers',
+      component: () => import('../views/CareersView.vue'),
+    },
+    {
       path: '/admin',
       component: AdminWrapper,
       children: [

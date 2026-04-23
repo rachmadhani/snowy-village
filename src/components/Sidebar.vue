@@ -54,14 +54,14 @@ const closeMenu = () => {
           <!-- Main Nav -->
           <nav class="overlay-nav">
             <ul class="primary-links">
-              <li class="nav-item"><a href="#products" @click="closeMenu">Menu</a></li>
-              <li class="nav-item"><a href="#" @click="closeMenu">Franchise</a></li>
-              <li class="nav-item"><a href="#locations" @click="closeMenu">Locations</a></li>
+              <li class="nav-item"><a href="/#products" @click="closeMenu">Menu</a></li>
+              <li class="nav-item"><a href="/franchise" @click="closeMenu">Franchise</a></li>
+              <li class="nav-item"><a href="/#locations" @click="closeMenu">Locations</a></li>
             </ul>
             <ul class="secondary-links">
               <li class="nav-item"><a href="#about" @click="closeMenu">About Us</a></li>
               <li class="nav-item"><a href="#" @click="closeMenu">News</a></li>
-              <li class="nav-item"><a href="#" @click="closeMenu">Careers</a></li>
+              <li class="nav-item"><a href="/careers" @click="closeMenu">Careers</a></li>
             </ul>
           </nav>
 
