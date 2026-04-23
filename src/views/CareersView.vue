@@ -32,15 +32,25 @@ const handleSubmit = () => {
 
       <!-- Sub-Header Info -->
       <div class="info-section">
-        <img src="/carrers-section/carrers-subtitle.svg" alt="Our Coquitlam location is hiring!" class="careers-subtitle-svg" />
+        <div class="subtitle-wrap">
+          <div class="info-badge">INFO</div>
+          <h2 class="sub-title">Our Coquitlam location is hiring! if you want to join one of the fastest growing bingsoo café in USA, send us your info today!~</h2>
+        </div>
+        <div class="v-divider"></div>
+        <div class="step-count">01</div>
       </div>
 
       <p class="update-date">Updated: 03.04.2018</p>
 
       <!-- Main Employee Care Box -->
       <main class="employee-box">
-        <div class="employee-header">
-          <img src="/carrers-section/carrers-description.svg" alt="We take special care of all our employees!" class="careers-description-svg" />
+        <div class="employee-content">
+          <h3 class="emp-title">We take special care of all our employees!</h3>
+          <div class="emp-body">
+            <p>
+              Our Coquitlam location is looking for a talented and caring staff member just like yourself! if you want to find out what’s it like to work at the best bingsoo place in USA, well send us your info today!
+            </p>
+          </div>
         </div>
 
         <!-- Careers Form -->
@@ -124,39 +134,84 @@ const handleSubmit = () => {
 
 /* Info Section Styles */
 .info-section {
+  /* display: flex; */
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+ 
+.subtitle-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ 
+.info-badge {
+  background: #000;
+  color: #fff;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 2px;
+  width: auto;
+}
+ 
+.sub-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+  max-width: 400px;
+  line-height: 1.2;
+}
+ 
+.v-divider {
+  width: 4px; /* Matches user pref from Franchise */
+  height: 40px;
+  background: #ddd;
+}
+ 
+.step-count {
+  background: #B9C83E;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
 }
-
-.careers-subtitle-svg {
-  width: 100%;
-  max-width: 476px;
-  height: auto;
-}
-
+ 
 .update-date {
   font-size: 11px;
   color: #999;
   margin-bottom: 40px;
 }
-
+ 
 /* Employee Box Container */
 .employee-box {
   background: #e6e6e6;
   padding: 60px 50px;
   border-radius: 4px;
 }
-
-.employee-header {
+ 
+.employee-content {
   margin-bottom: 40px;
 }
-
-.careers-description-svg {
-  width: 100%;
-  max-width: 559px;
-  height: auto;
+ 
+.emp-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: #111;
+  margin-bottom: 30px;
+}
+ 
+.emp-body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
 }
 
 /* Form Styles */

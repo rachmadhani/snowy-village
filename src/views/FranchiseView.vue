@@ -31,15 +31,28 @@ const handleSubmit = () => {
 
       <!-- Sub-Header Info -->
       <div class="info-section">
-        <img src="/franchise-section/franchise-subtitle.svg" alt="Join the fastest growing Bingsoo Café" class="franchise-subtitle-svg" />
+        <div class="subtitle-wrap">
+          <div class="info-badge">INFO</div>
+          <h2 class="sub-title">Join the fastest growing Bingsoo Café in USA!</h2>
+        </div>
+        <div class="v-divider"></div>
+        <div class="step-count">02</div>
       </div>
 
       <p class="update-date">Updated: 03.04.2018</p>
 
       <!-- Main Opportunity Box -->
       <main class="opportunity-container">
-        <div class="opportunity-description">
-          <img src="/franchise-section/franchise-description.svg" alt="Opportunity awaits you" class="franchise-description-svg" />
+        <div class="opportunity-content">
+          <h3 class="opp-title">Opportunity awaits you. Join our growing family.</h3>
+          <div class="opp-body">
+            <p>
+              Snowy Village is the fastest growing bingsoo café in USA. In just a little over 2 years we have grown from one location to now across Canada. we are always looking for passionate partners to take on the new market with us.
+            </p>
+            <p>
+              Email us with inquiry and we will get back to you with all the tangible information you would need to own your very own Snowy Village Franchise.
+            </p>
+          </div>
         </div>
 
         <!-- Franchise Form -->
@@ -110,15 +123,54 @@ const handleSubmit = () => {
 /* Info Section */
 .info-section {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  /* align-items: center; */
+  gap: 20px;
+  margin-bottom: 25px;
 }
  
-.franchise-subtitle-svg {
-  width: 100%;
-  max-width: 476px;
-  height: auto;
+.subtitle-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 400px;
+}
+ 
+.info-badge {
+  background: #000;
+  color: #fff;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  width: auto;
+  border-radius: 2px;
+}
+ 
+.sub-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+  max-width: 500px;
+  line-height: 1.2;
+}
+ 
+.v-divider {
+  width: 4px;
+  height: 40px;
+  background: #ddd;
+}
+ 
+.step-count {
+  background: #B9C83E;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
 }
  
 .update-date {
@@ -132,16 +184,24 @@ const handleSubmit = () => {
   background: #e6e6e6;
   padding: 60px 50px;
   border-radius: 4px;
-}
- 
-.opportunity-description {
   margin-bottom: 40px;
 }
  
-.franchise-description-svg {
-  width: 100%;
-  max-width: 559px;
-  height: auto;
+.opp-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: #111;
+  margin-bottom: 30px;
+}
+ 
+.opp-body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+ 
+.opp-body p {
+  margin-bottom: 15px;
 }
 
 /* Form Styles */
