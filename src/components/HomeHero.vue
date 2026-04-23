@@ -50,7 +50,7 @@ onUnmounted(() => {
       <div class="hero-content animate-fade-in" style="animation-delay: 0.3s">
         <div class="content-wrapper">
           <img src="/hero-image-content/main_since.png" alt="Franchisee Message" class="franchisee-text" />
-          <a href="#" class="menu-btn">
+          <a href="#products" class="menu-btn">
             <img src="/hero-image-content/main_our_menu.png" alt="See Our Menu" />
           </a>
         </div>
