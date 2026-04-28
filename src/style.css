@@ -287,3 +287,8 @@ html {
     height: 10vh;
   }
 }
+
+/* Fix Toast Z-Index to appear above Admin Header */
+.Vue-Toastification__container {
+  z-index: 999999 !important;
+}
