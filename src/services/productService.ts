@@ -5,7 +5,7 @@ export interface Product {
   product_title: string
   product_description: string
   product_image: string | null
-  product_badge_popular: boolean
+  product_badge_popular: string
   created_at: string
   updated_at: string
 }

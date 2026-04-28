@@ -64,7 +64,7 @@
               </td>
               <td class="py-5 px-6">
                 <span 
-                  v-if="product.product_badge_popular"
+                  v-if="product.product_badge_popular === 'true'"
                   class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
                 >
                   Popular
@@ -99,6 +99,7 @@
     <!-- Modals -->
     <ProductModal 
       v-if="isModalOpen" 
+      :key="selectedProduct?.id || 'new'"
       :product="selectedProduct" 
       :loading="modalLoading"
       @close="closeModal" 
