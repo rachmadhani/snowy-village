@@ -1,25 +1,71 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
+import { locationService, type Location } from '@/services/locationService';
 
-const locations = [
-  { name: 'Richmond', address: '#113-8571 Alexandra Rd, Richmond, BC', hours: ['Monday to Thursday 5pm-11pm', 'Friday 5pm-11:30pm', 'Saturday 1pm-11:30pm', 'Sunday 1pm-11pm'], phone: '(778) 681-7832' },
-  { name: 'Coquitlam', address: '#100-1188 Pinetree Way, Coquitlam, BC', hours: ['Monday to Thursday 3pm-10pm', 'Friday & Saturday 1pm-11pm', 'Sunday 1pm-10pm', 'Tuesday Closed'], phone: '(604) 461-8896' },
-  { name: 'Surrey', address: '#148-10090 152 St, Surrey, BC', hours: ['Monday to Thursday 3pm-10pm', 'Friday 3pm-10:30pm', 'Saturday 1pm-10:30pm', 'Sunday 1pm-10pm'], phone: '(604) 582-8842' },
-  { name: 'Langley', address: '#105-21183 88 Ave, Langley, BC', hours: ['Monday 2pm-10pm', 'Tuesday to Sunday 1pm-10pm'], phone: '(604) 371-4007' },
-  { name: 'Saskatoon', address: '#50-3270 Preston Ave S, Saskatoon, SK', hours: ['Monday to Thursday 11am-9:30pm', 'Friday to Sunday 11am-10pm'], phone: '(306) 668-0660' },
-  { name: 'New Westminster Station', address: '#336-800 Carnarvon St, New Westminster, BC', hours: ['Monday to Thursday 3pm-9pm', 'Friday 3pm-10:30pm', 'Saturday 1pm-10:30pm', 'Sunday 1pm-9pm'], phone: '(604) 544-4277' },
-  { name: 'New Westminster Victoria Hill (Corporate Store)', address: '#130-28E Royal Ave, New Westminster, BC', hours: ['Monday to Thursday 8am-9:30pm', 'Saturday & Sunday 11am-9:30pm', 'Wednesday Closed'], phone: '(604) 553-3550' },
-  { name: 'Edmonton', address: '11022 Jasper Ave, Edmonton, AB', hours: ['Monday to Thursday 4pm-10pm', 'Friday 4pm-11pm', 'Saturday 1pm-11pm', 'Sunday 1pm-10pm'], phone: '(780) 752-1818' },
-  { name: 'Victoria', address: '#2a-4071 Shelbourne St, Victoria, BC', hours: ['Sun to Thursday 12pm-8pm', 'Friday & Saturday 12pm-9pm', 'Tuesday Closed'], phone: '(250) 590-2277' },
-  { name: 'Calgary', address: '#101-3604 52 Ave NW, Calgary, AB', hours: ['Sunday to Thursday 1pm-10pm', 'Friday, Saturday 1pm-11pm'] },
-  { name: 'Calgary No2', address: '#145-180 Legacy Main Street SE, Calgary, AB', phone: '(825) 222-4416' },
-  { name: 'Seoul Korea', address: '+82 10-9121-3969' }
-];
-
+const locations = ref<Location[]>([]);
+const loading = ref(true);
 const visibleCards = ref<Set<number>>(new Set());
+let observer: IntersectionObserver | null = null;
 
-onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
+const formatDay = (day: string) => {
+  return day.charAt(0).toUpperCase() + day.slice(1);
+};
+
+const getDisplayHours = (location: Location) => {
+  const hours = location.opening_hours;
+  if (!hours) return [];
+
+  const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+  const grouped: string[] = [];
+  
+  let i = 0;
+  while (i < days.length) {
+    let j = i + 1;
+    const timeArray = hours[days[i]] ?? [];
+    const currentTime = timeArray.length > 0 ? timeArray[0] : 'Closed';
+    
+    while (j < days.length) {
+      const nextTimeArray = hours[days[j]] ?? [];
+      const nextTime = nextTimeArray.length > 0 ? nextTimeArray[0] : 'Closed';
+      if (nextTime === currentTime) {
+        j++;
+      } else {
+        break;
+      }
+    }
+    
+    const count = j - i;
+    const startTime = currentTime;
+    
+    if (count === 1) {
+      grouped.push(`${formatDay(days[i])} ${startTime}`);
+    } else if (count === 2) {
+      grouped.push(`${formatDay(days[i])} & ${formatDay(days[j-1])} ${startTime}`);
+    } else {
+      grouped.push(`${formatDay(days[i])} to ${formatDay(days[j-1])} ${startTime}`);
+    }
+    
+    i = j;
+  }
+  
+  return grouped;
+};
+
+const fetchLocations = async () => {
+  try {
+    const response = await locationService.getAll();
+    locations.value = response.data;
+  } catch (error) {
+    console.error('Failed to fetch locations:', error);
+  } finally {
+    loading.value = false;
+  }
+};
+
+const setupObserver = () => {
+  if (observer) observer.disconnect();
+  
+  observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = parseInt(entry.target.getAttribute('data-id') || '0');
@@ -28,7 +74,16 @@ onMounted(() => {
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.location-card').forEach(card => observer.observe(card));
+  document.querySelectorAll('.location-card').forEach(card => observer?.observe(card));
+};
+
+onMounted(async () => {
+  await fetchLocations();
+  setupObserver();
+});
+
+watch(locations, () => {
+  setTimeout(setupObserver, 100);
 });
 </script>
 
@@ -39,30 +94,34 @@ onMounted(() => {
         <img src="/footer-section/locations-title-1.svg" alt="Locations | Our store informations" class="title-svg" />
       </div>
 
-      <div class="locations-grid">
+      <div class="locations-grid" v-if="!loading">
         <div 
           v-for="(loc, index) in locations" 
-          :key="index" 
+          :key="loc.id" 
           class="location-card"
-          :data-id="index"
-          :class="{ 'is-visible': visibleCards.has(index) }"
+          :data-id="loc.id"
+          :class="{ 'is-visible': visibleCards.has(loc.id) }"
           :style="{ transitionDelay: (index % 3) * 0.1 + 's' }"
         >
           <div class="card-header">
             <img src="/footer-section/locations-pin.svg" class="pin-icon" alt="" />
-            <h3 class="city-name">{{ loc.name }}</h3>
+            <h3 class="city-name">{{ loc.city_name }}</h3>
           </div>
           
           <div class="card-body">
             <p class="address">{{ loc.address }}</p>
-            <div v-if="loc.hours" class="hours">
-              <p v-for="h in loc.hours" :key="h">{{ h }}</p>
+            <div class="hours">
+              <p v-for="h in getDisplayHours(loc)" :key="h">{{ h }}</p>
             </div>
-            <p v-if="loc.phone" class="phone">{{ loc.phone }}</p>
+            <p v-if="loc.phone_number" class="phone">{{ loc.phone_number }}</p>
           </div>
 
-          <a v-if="loc.name !== 'Seoul Korea'" href="#" class="map-button">Google Map</a>
+          <a v-if="loc.map_url" :href="loc.map_url" target="_blank" class="map-button">Google Map</a>
+          <a v-else-if="loc.city_name !== 'Seoul Korea'" href="#" class="map-button">Google Map</a>
         </div>
+      </div>
+      <div v-else class="loading-state">
+        <p>Loading locations...</p>
       </div>
     </div>
   </section>
@@ -165,6 +224,12 @@ onMounted(() => {
   background-color: #fff;
   color: #000;
   border-color: #fff;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 50px;
+  color: #888;
 }
 
 @media (max-width: 1024px) {
