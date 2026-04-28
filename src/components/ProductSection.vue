@@ -1,31 +1,33 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { productService, type Product } from '@/services/productService';
 
-const products = [
-  { id: 1, image: '/product-section/sample-product-1.png', info: '/product-section/sample-product-title-description-1.svg', popular: true },
-  { id: 2, image: '/product-section/sample-product-1.png', info: '/product-section/sample-product-title-description-2.svg', popular: false },
-  { id: 3, image: '/product-section/sample-product-3.png', info: '/product-section/sample-product-title-description-3.svg', popular: false },
-  { id: 4, image: '/product-section/sample-product-1.png', info: '/product-section/sample-product-title-description-1.svg', popular: false },
-  { id: 5, image: '/product-section/sample-product-1.png', info: '/product-section/sample-product-title-description-2.svg', popular: true },
-  { id: 6, image: '/product-section/sample-product-3.png', info: '/product-section/sample-product-title-description-3.svg', popular: false },
-  { id: 7, image: '/product-section/sample-product-1.png', info: '/product-section/sample-product-title-description-1.svg', popular: false },
-  { id: 8, image: '/product-section/sample-product-1.png', info: '/product-section/sample-product-title-description-2.svg', popular: false },
-  { id: 9, image: '/product-section/sample-product-3.png', info: '/product-section/sample-product-title-description-3.svg', popular: true },
-];
+const products = ref<Product[]>([]);
+const loading = ref(true);
 
 const visibleItems = ref<Set<number>>(new Set());
 let observer: IntersectionObserver | null = null;
 
-onMounted(() => {
+const fetchProducts = async () => {
+  try {
+    const response = await productService.getAll();
+    products.value = response.data;
+  } catch (error) {
+    console.error('Failed to fetch products:', error);
+  } finally {
+    loading.value = false;
+  }
+};
+
+const setupObserver = () => {
+  if (observer) observer.disconnect();
+  
   observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const id = parseInt(entry.target.getAttribute('data-id') || '0');
       if (entry.isIntersecting) {
         visibleItems.value.add(id);
       } else {
-        // Keep it visible once it has appeared, or reset if desired.
-        // For Snowy Village style, we usually want it to stay or re-animate.
-        // Let's reset so it re-animates on scroll up/down as requested before.
         visibleItems.value.delete(id);
       }
     });
@@ -33,6 +35,16 @@ onMounted(() => {
 
   const items = document.querySelectorAll('.product-card');
   items.forEach(item => observer?.observe(item));
+};
+
+onMounted(async () => {
+  await fetchProducts();
+  setupObserver();
+});
+
+// Re-setup observer when products change
+watch(products, () => {
+  setTimeout(setupObserver, 100);
 });
 
 onUnmounted(() => {
@@ -48,24 +60,30 @@ onUnmounted(() => {
         <img src="/process-section/product-subtitle.svg" alt="Order for Pick up" class="section-subtitle-svg" />
       </div>
 
-      <div class="product-grid">
+      <div class="product-grid" v-if="!loading">
         <div 
           v-for="(product, index) in products" 
-          :key="index" 
+          :key="product.id" 
           class="product-card"
-          :class="{ 'is-visible': visibleItems.has(index + 1) }"
-          :data-id="index + 1"
+          :class="{ 'is-visible': visibleItems.has(product.id) }"
+          :data-id="product.id"
           :style="{ transitionDelay: (index % 3) * 0.1 + 's' }"
         >
           <div class="image-wrapper">
-            <img v-if="product.popular" src="/product-section/product-section-badges-popular.svg" class="popular-badge" alt="Popular" />
-            <img :src="product.image" :alt="'Product ' + product.id" class="product-image" />
+            <img v-if="product.product_badge_popular === 'true'" src="/product-section/product-section-badges-popular.svg" class="popular-badge" alt="Popular" />
+            <img :src="product.product_image || '/product-section/sample-product-1.png'" :alt="product.product_title" class="product-image" />
             <img src="/product-section/cake-shadow.png" class="cake-shadow" alt="" />
           </div>
           <div class="info-wrapper">
-            <img :src="product.info" alt="Product Description" class="info-svg" />
+            <div class="product-info-text">
+              <h3 class="product-title">{{ product.product_title }}</h3>
+              <p class="product-desc">{{ product.product_description }}</p>
+            </div>
           </div>
         </div>
+      </div>
+      <div v-else class="loading-state">
+        <p>Loading products...</p>
       </div>
     </div>
   </section>
@@ -187,11 +205,40 @@ onUnmounted(() => {
   width: 100%;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
-.info-svg {
+.product-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
   width: 312px;
-  height: auto;
+}
+
+.product-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.product-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 50px;
+  font-family: 'Outfit', sans-serif;
+  color: #888;
 }
 
 /* Responsive */
