@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AdminWrapper from '../admin/AdminWrapper.vue'
+import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,20 +25,33 @@ const router = createRouter({
       component: () => import('../views/CareersView.vue'),
     },
     {
+      path: '/admin/login',
+      name: 'admin-login',
+      component: () => import('../admin/views/Auth/Signin.vue'),
+      meta: { title: 'Admin Login', guest: true },
+    },
+    {
       path: '/admin',
       component: AdminWrapper,
+      meta: { requiresAuth: true },
       children: [
         {
           path: '',
-          name: 'Ecommerce',
+          name: 'Dashboard',
           component: () => import('../admin/views/Ecommerce.vue'),
-          meta: { title: 'eCommerce Dashboard' },
+          meta: { title: 'Dashboard' },
         },
         {
-          path: 'calendar',
-          name: 'Calendar',
-          component: () => import('../admin/views/Others/Calendar.vue'),
-          meta: { title: 'Calendar' },
+          path: 'products',
+          name: 'Products',
+          component: () => import('../admin/views/Products/ProductsView.vue'),
+          meta: { title: 'Manage Products' },
+        },
+        {
+          path: 'locations',
+          name: 'Locations',
+          component: () => import('../admin/views/Locations/LocationsView.vue'),
+          meta: { title: 'Manage Locations' },
         },
         {
           path: 'profile',
@@ -45,72 +59,14 @@ const router = createRouter({
           component: () => import('../admin/views/Others/UserProfile.vue'),
           meta: { title: 'Profile' },
         },
-        {
-          path: 'form-elements',
-          name: 'Form Elements',
-          component: () => import('../admin/views/Forms/FormElements.vue'),
-          meta: { title: 'Form Elements' },
-        },
-        {
-          path: 'basic-tables',
-          name: 'Basic Tables',
-          component: () => import('../admin/views/Tables/BasicTables.vue'),
-          meta: { title: 'Basic Tables' },
-        },
-        {
-          path: 'line-chart',
-          name: 'Line Chart',
-          component: () => import('../admin/views/Chart/LineChart/LineChart.vue'),
-          meta: { title: 'Line Chart' },
-        },
-        {
-          path: 'bar-chart',
-          name: 'Bar Chart',
-          component: () => import('../admin/views/Chart/BarChart/BarChart.vue'),
-          meta: { title: 'Bar Chart' },
-        },
-        {
-          path: 'alerts',
-          name: 'Alerts',
-          component: () => import('../admin/views/UiElements/Alerts.vue'),
-          meta: { title: 'Alerts' },
-        },
-        {
-          path: 'avatars',
-          name: 'Avatars',
-          component: () => import('../admin/views/UiElements/Avatars.vue'),
-          meta: { title: 'Avatars' },
-        },
-        {
-          path: 'badges',
-          name: 'Badges',
-          component: () => import('../admin/views/UiElements/Badges.vue'),
-          meta: { title: 'Badges' },
-        },
-        {
-          path: 'buttons',
-          name: 'Buttons',
-          component: () => import('../admin/views/UiElements/Buttons.vue'),
-          meta: { title: 'Buttons' },
-        },
-        {
-          path: 'images',
-          name: 'Images',
-          component: () => import('../admin/views/UiElements/Images.vue'),
-          meta: { title: 'Images' },
-        },
-        {
-          path: 'videos',
-          name: 'Videos',
-          component: () => import('../admin/views/UiElements/Videos.vue'),
-          meta: { title: 'Videos' },
-        },
       ],
     },
   ],
 })
 
 router.beforeEach((to, _from, next) => {
+  const authStore = useAuthStore()
+
   if (to.meta.title) {
     document.title = `${to.meta.title} | Snowy Village Admin`
   } else if (to.path.startsWith('/admin')) {
@@ -118,7 +74,14 @@ router.beforeEach((to, _from, next) => {
   } else {
     document.title = 'Snowy Village'
   }
-  next()
+
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+    next({ name: 'admin-login' })
+  } else if (to.meta.guest && authStore.isAuthenticated) {
+    next({ name: 'Dashboard' })
+  } else {
+    next()
+  }
 })
 
 export default router
