@@ -161,14 +161,15 @@ onUnmounted(() => {
 .product-image {
   width: 199px;
   height: 300px;
+  padding-top: 100px;
   object-fit: contain;
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
 }
 
 .popular-badge {
   position: absolute;
-  top: 13%;
-  left: 9%;
+  top: 30%;
+  left: 17%;
   width: 60px;
   z-index: 2;
   opacity: 0;
@@ -193,8 +194,8 @@ onUnmounted(() => {
 .cake-shadow {
   position: absolute;
   bottom: 0;
-  right: -20px;
-  width: 162px;
+  right: 32px;
+  width: 140px;
   height: auto;
   z-index: 0;
   pointer-events: none;
