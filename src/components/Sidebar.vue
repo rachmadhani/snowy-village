@@ -60,7 +60,7 @@ const closeMenu = () => {
             </ul>
             <ul class="secondary-links">
               <li class="nav-item"><a href="#about" @click="closeMenu">About Us</a></li>
-              <li class="nav-item"><a href="#" @click="closeMenu">News</a></li>
+              <!-- <li class="nav-item"><a href="#" @click="closeMenu">News</a></li> -->
               <li class="nav-item"><a href="/careers" @click="closeMenu">Careers</a></li>
             </ul>
           </nav>
@@ -89,8 +89,7 @@ const closeMenu = () => {
             <div class="locations-section">
               <span class="loc-title">Locations</span>
               <p class="loc-list">
-                Richmond / Coquitlam / Surrey / Langley / Saskatoon / New Westminster Station / 
-                New Westminster Victoria Hill / Edmonton / Victoria / Calgary
+                AZ
               </p>
             </div>
           </footer>

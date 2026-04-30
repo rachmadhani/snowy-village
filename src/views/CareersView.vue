@@ -34,7 +34,7 @@ const handleSubmit = () => {
       <div class="info-section">
         <div class="subtitle-wrap">
           <div class="info-badge">INFO</div>
-          <h2 class="sub-title">Our Coquitlam location is hiring! if you want to join one of the fastest growing bingsoo café in USA, send us your info today!~</h2>
+          <h2 class="sub-title">Our location is hiring! if you want to join one of the fastest growing bingsoo café in USA, send us your info today!~</h2>
         </div>
         <div class="v-divider"></div>
         <div class="step-count">01</div>
@@ -134,8 +134,8 @@ const handleSubmit = () => {
 
 /* Info Section Styles */
 .info-section {
-  /* display: flex; */
-  align-items: center;
+  display: flex;
+  /* align-items: center; */
   gap: 20px;
   margin-bottom: 25px;
 }
@@ -161,7 +161,7 @@ const handleSubmit = () => {
   font-weight: 600;
   color: #111;
   margin: 0;
-  max-width: 400px;
+  max-width: 500px;
   line-height: 1.2;
 }
  
@@ -195,6 +195,7 @@ const handleSubmit = () => {
   background: #e6e6e6;
   padding: 60px 50px;
   border-radius: 4px;
+  margin-bottom: 40px;
 }
  
 .employee-content {
