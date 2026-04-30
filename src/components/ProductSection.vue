@@ -160,7 +160,7 @@ onUnmounted(() => {
 
 .product-image {
   width: 199px;
-  height: auto;
+  height: 300px;
   object-fit: contain;
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
 }
@@ -224,6 +224,10 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0;
+  min-height: 72px; /* Accommodates up to 2 lines and ensures alignment */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-desc {
@@ -232,6 +236,7 @@ onUnmounted(() => {
   line-height: 1.5;
   color: #666;
   margin: 0;
+  min-height: 60px; /* Ensures alignment for descriptions */
 }
 
 .loading-state {
