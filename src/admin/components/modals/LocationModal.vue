@@ -63,7 +63,7 @@
         <!-- Opening Hours -->
         <div>
           <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-            Opening Hours <span class="text-red-500">*</span>
+            Opening Hours
           </label>
           <div class="space-y-3 bg-gray-50 dark:bg-gray-800/20 p-4 rounded-2xl border border-gray-100 dark:border-gray-800/50">
             <div v-for="day in days" :key="day" class="flex items-center gap-4">
@@ -71,7 +71,6 @@
               <input 
                 v-model="form.opening_hours[day][0]" 
                 type="text" 
-                required
                 placeholder="e.g. 09:00 - 21:00"
                 class="flex-1 px-3 py-1.5 text-xs border border-gray-200 dark:border-gray-700 rounded-lg dark:bg-gray-800 dark:text-white outline-none focus:border-brand-500 transition"
               />
