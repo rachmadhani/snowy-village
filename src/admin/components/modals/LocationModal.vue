@@ -68,6 +68,7 @@
           <div class="space-y-3 bg-gray-50 dark:bg-gray-800/20 p-4 rounded-2xl border border-gray-100 dark:border-gray-800/50">
             <div v-for="day in days" :key="day" class="flex items-center gap-4">
               <span class="w-20 text-xs font-bold text-gray-400 uppercase tracking-wider">{{ day.substring(0,3) }}</span>
+              <input 
                 v-model="form.opening_hours[day][0]" 
                 type="text" 
                 required
