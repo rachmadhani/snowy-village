@@ -185,7 +185,7 @@ const handleSubmit = async () => {
     
     authStore.setAuth(data.access_token, data.user)
     toast.success('Welcome back, ' + data.user.name)
-    router.push({ name: 'Dashboard' })
+    router.push({ name: 'Products' })
   } catch (error: any) {
     const message = error.response?.data?.message || 'Login failed. Please check your credentials.'
     toast.error(message)

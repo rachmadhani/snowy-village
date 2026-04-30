@@ -78,7 +78,7 @@ router.beforeEach((to, _from, next) => {
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
     next({ name: 'admin-login' })
   } else if (to.meta.guest && authStore.isAuthenticated) {
-    next({ name: 'Dashboard' })
+    next({ name: 'Products' })
   } else {
     next()
   }
