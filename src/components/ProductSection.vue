@@ -136,7 +136,7 @@ onUnmounted(() => {
 }
 
 .product-card {
-  width: 300px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,8 +167,8 @@ onUnmounted(() => {
 
 .popular-badge {
   position: absolute;
-  top: -7%;
-  left: -10%;
+  top: 13%;
+  left: 9%;
   width: 60px;
   z-index: 2;
   opacity: 0;
