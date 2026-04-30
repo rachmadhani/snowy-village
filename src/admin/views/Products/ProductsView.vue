@@ -138,8 +138,8 @@ const fetchProducts = async () => {
   try {
     const response = await productService.getAll()
     products.value = response.data
-  } catch (error) {
-    toast.error('Failed to fetch products')
+  } catch (error: any) {
+    toast.error(error.response?.data?.message || 'Failed to fetch products')
   } finally {
     loading.value = false
   }
@@ -172,8 +172,17 @@ const handleSave = async (formData: FormData) => {
     }
     closeModal()
     fetchProducts()
-  } catch (error) {
-    toast.error('Failed to save product')
+  } catch (error: any) {
+    const message = error.response?.data?.message || 'Failed to save product'
+    const errors = error.response?.data?.errors
+    
+    if (errors) {
+      const firstErrorField = Object.keys(errors)[0]
+      const firstErrorMessage = errors[firstErrorField][0]
+      toast.error(firstErrorMessage)
+    } else {
+      toast.error(message)
+    }
   } finally {
     modalLoading.value = false
   }
@@ -185,8 +194,8 @@ const handleDelete = async (id: number) => {
       await productService.delete(id)
       toast.success('Product deleted successfully')
       fetchProducts()
-    } catch (error) {
-      toast.error('Failed to delete product')
+    } catch (error: any) {
+      toast.error(error.response?.data?.message || 'Failed to delete product')
     }
   }
 }

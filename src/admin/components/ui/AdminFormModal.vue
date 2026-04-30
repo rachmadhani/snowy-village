@@ -7,7 +7,10 @@
     ></div>
 
     <!-- Modal Content -->
-    <div class="relative w-full max-w-lg bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up z-10">
+    <form 
+      @submit.prevent="$emit('submit')"
+      class="relative w-full max-w-lg bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up z-10"
+    >
       <!-- Header -->
       <div class="px-6 py-5 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center bg-white dark:bg-gray-900 sticky top-0 z-20">
         <h3 class="text-xl font-bold text-gray-800 dark:text-white">
@@ -37,7 +40,6 @@
         <button 
           type="submit" 
           :disabled="loading"
-          @click="$emit('submit')"
           class="px-8 py-2.5 text-sm font-bold text-white bg-brand-500 hover:bg-brand-600 rounded-xl shadow-lg shadow-brand-500/20 transition-all active:scale-95 disabled:opacity-50 flex items-center gap-2"
         >
           <svg v-if="loading" class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -47,7 +49,7 @@
           {{ loading ? 'Saving...' : submitText }}
         </button>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 

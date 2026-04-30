@@ -136,8 +136,8 @@ const fetchLocations = async () => {
   try {
     const response = await locationService.getAll()
     locations.value = response.data
-  } catch (error) {
-    toast.error('Failed to fetch locations')
+  } catch (error: any) {
+    toast.error(error.response?.data?.message || 'Failed to fetch locations')
   } finally {
     loading.value = false
   }
@@ -170,8 +170,18 @@ const handleSave = async (data: any) => {
     }
     closeModal()
     fetchLocations()
-  } catch (error) {
-    toast.error('Failed to save location')
+  } catch (error: any) {
+    const message = error.response?.data?.message || 'Failed to save location'
+    const errors = error.response?.data?.errors
+    
+    if (errors) {
+      // Get the first error message from the first field that failed
+      const firstErrorField = Object.keys(errors)[0]
+      const firstErrorMessage = errors[firstErrorField][0]
+      toast.error(firstErrorMessage)
+    } else {
+      toast.error(message)
+    }
   } finally {
     modalLoading.value = false
   }
@@ -183,8 +193,8 @@ const handleDelete = async (id: number) => {
       await locationService.delete(id)
       toast.success('Location deleted successfully')
       fetchLocations()
-    } catch (error) {
-      toast.error('Failed to delete location')
+    } catch (error: any) {
+      toast.error(error.response?.data?.message || 'Failed to delete location')
     }
   }
 }

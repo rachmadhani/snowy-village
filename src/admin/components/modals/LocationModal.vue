@@ -9,7 +9,9 @@
       <div class="space-y-5">
         <div class="grid grid-cols-2 gap-4">
           <div>
-            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">City Name</label>
+            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              City Name <span class="text-red-500">*</span>
+            </label>
             <input 
               v-model="form.city_name" 
               type="text" 
@@ -19,7 +21,9 @@
             />
           </div>
           <div>
-            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Phone Number</label>
+            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              Phone Number <span class="text-red-500">*</span>
+            </label>
             <input 
               v-model="form.phone_number" 
               type="text" 
@@ -31,7 +35,9 @@
         </div>
 
         <div>
-          <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Address</label>
+          <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+            Address <span class="text-red-500">*</span>
+          </label>
           <textarea 
             v-model="form.address" 
             rows="2"
@@ -42,10 +48,13 @@
         </div>
 
         <div>
-          <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Google Maps URL</label>
+          <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+            Google Maps URL <span class="text-red-500">*</span>
+          </label>
           <input 
             v-model="form.map_url" 
             type="url" 
+            required
             class="w-full px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-xl dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 outline-none transition text-sm"
             placeholder="https://goo.gl/maps/..."
           />
@@ -53,13 +62,15 @@
 
         <!-- Opening Hours -->
         <div>
-          <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Opening Hours</label>
+          <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+            Opening Hours <span class="text-red-500">*</span>
+          </label>
           <div class="space-y-3 bg-gray-50 dark:bg-gray-800/20 p-4 rounded-2xl border border-gray-100 dark:border-gray-800/50">
             <div v-for="day in days" :key="day" class="flex items-center gap-4">
               <span class="w-20 text-xs font-bold text-gray-400 uppercase tracking-wider">{{ day.substring(0,3) }}</span>
-              <input 
                 v-model="form.opening_hours[day][0]" 
                 type="text" 
+                required
                 placeholder="e.g. 09:00 - 21:00"
                 class="flex-1 px-3 py-1.5 text-xs border border-gray-200 dark:border-gray-700 rounded-lg dark:bg-gray-800 dark:text-white outline-none focus:border-brand-500 transition"
               />
