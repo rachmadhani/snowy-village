@@ -117,11 +117,25 @@
   font-weight: 700;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .footer-section {
-    padding: 20vh 5% 6vh;
-    clip-path: polygon(0 12vh, 100% 0, 100% 100%, 0 100%);
-    margin-top: -12vh;
+    padding: 15vh 8% 5vh;
+    clip-path: polygon(0 8vh, 100% 0, 100% 100%, 0 100%);
+    margin-top: -8vh;
+    background-size: auto;
+  }
+  
+  .footer-container {
+    gap: 20px;
+  }
+
+  .social-svg {
+    width: 24px;
+  }
+
+  .copyright {
+    font-size: 10px;
+    line-height: 1.4;
   }
 }
 </style>

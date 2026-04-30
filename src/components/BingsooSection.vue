@@ -309,9 +309,72 @@ onUnmounted(() => {
 
 /* Responsive */
 @media (max-width: 1100px) {
-  .callout-1 { left: 5%; top: 30%; }
-  .callout-2 { right: 5%; top: 45%; }
-  .callout-3 { right: 5%; top: 60%; }
+  .callout-1 { left: 5%; top: 25%; }
+  .callout-2 { right: 5%; top: 40%; }
+  .callout-3 { right: 5%; top: 55%; }
   .line-1, .line-2, .line-3 { display: none; }
+}
+
+@media (max-width: 600px) {
+  .bingsoo-section {
+    margin-top: -20vh;
+    padding-top: 10vh;
+  }
+  
+  .bingsoo-visual-area {
+    aspect-ratio: 1 / 1.6; /* More vertical for mobile */
+  }
+
+  .bingsoo-header {
+    top: 15%;
+  }
+  
+  .header-svg {
+    width: 220px;
+  }
+
+  .callout {
+    max-width: 160px;
+  }
+
+  .callout-1 {
+    top: 22%;
+    left: 8%;
+  }
+
+  .callout-2 {
+    top: 42%;
+    right: 8%;
+  }
+
+  .callout-3 {
+    top: 62%;
+    right: 8%;
+  }
+
+  .title-svg {
+    height: 18px;
+    width: auto;
+  }
+
+  .description-text {
+    font-size: 11px;
+    color:#f1f1f1;
+    max-width: 140px;
+  }
+
+  .allergy-advice {
+    bottom: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .allergy-svg {
+    width: 100px;
+  }
+  
+  .animated-content {
+    gap: 10px;
+  }
 }
 </style>

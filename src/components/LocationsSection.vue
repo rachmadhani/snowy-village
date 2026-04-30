@@ -232,26 +232,44 @@ watch(locations, () => {
   color: #888;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   .locations-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .locations-section {
-    padding: 20vh 5% 10vh;
-    clip-path: polygon(0 12vh, 100% 0, 100% 100%, 0 100%);
-    margin-top: -12vh;
+    padding: 20vh 8% 10vh;
+    clip-path: polygon(0 10vh, 100% 0, 100% 100%, 0 100%);
+    margin-top: -10vh;
   }
   
+  .header-area {
+    margin-bottom: 40px;
+  }
+
+  .title-svg {
+    width: 280px;
+  }
+
   .locations-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
   
   .city-name {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
+  }
+
+  .card-body {
+    min-height: auto;
+  }
+
+  .map-button {
+    width: 100%;
+    min-width: unset;
   }
 }
 </style>

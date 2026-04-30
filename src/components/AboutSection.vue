@@ -64,7 +64,7 @@
   width: 100%;
   min-height: 100vh;
   /* Solid base so body (--color-bg) does not show through texture transparency */
-  background-color: #fafafa;
+  background-color: #fdfbfa;
   background-image: url('/about-section/divider02-recovered.png');
   background-size: cover;
   background-position: center top;
@@ -254,16 +254,58 @@
   .about-container {
     flex-direction: column;
     align-items: center;
+    gap: 40px;
+  }
+  .about-text-col { 
+    width: 100%; 
+    align-items: center;
+    text-align: center;
+  }
+  .about-header {
+    justify-content: center;
+  }
+  .about-desc-text {
+    margin-left: auto;
+    margin-right: auto;
   }
   .cake-composition {
     position: relative;
-    bottom: auto;
-    right: auto;
+    top: 0;
+    margin-top: 20px;
     width: 100%;
     max-width: 420px;
-    padding-top: 0;
-    margin-top: 32px;
+    height: auto;
+    padding-bottom: 50px;
   }
-  .about-text-col { width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 20vh 5% 10vh;
+    clip-path: polygon(0 10vh, 100% 0, 100% 100%, 0 calc(100% - 10vh));
+  }
+  .about-title {
+    font-size: 36px;
+  }
+  .about-divider {
+    height: 40px;
+  }
+  .about-subtitle {
+    font-size: 12px;
+  }
+  .about-desc-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .cakes-group {
+    transform: scale(0.8);
+    margin-bottom: -20px;
+  }
+  .comp-caption {
+    width: 160px;
+  }
+  .comp-logo {
+    width: 90px;
+  }
 }
 </style>

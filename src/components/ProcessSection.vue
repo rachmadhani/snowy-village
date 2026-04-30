@@ -207,23 +207,94 @@
 /* Responsive */
 @media (max-width: 1100px) {
   .process-row {
-    flex-direction: column;
-    margin-bottom: 60px;
+    flex-direction: row; /* Keep side-by-side like desktop */
+    min-height: 300px;
+    margin-bottom: -50px;
   }
   
-  .image-col {
+  .text-col {
+    flex: 1.5;
+    padding: 0 2%;
+  }
+
+  .process-card {
     width: 100%;
-    margin-top: 30px;
+    padding: 25px 20px;
+    z-index: 10;
+  }
+
+  .image-col {
+    flex: 1;
+    margin-left: -20%; /* Maintain overlap but less aggressive */
+    z-index: 1;
   }
   
   .process-photo {
-    height: 400px;
-    clip-path: none !important;
-    margin-top: 0 !important;
+    height: 350px;
+    object-fit: cover;
   }
 
   .process-section {
-    padding-top: 20vh;
+    padding-top: 25vh;
+    padding-bottom: 15vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .process-section {
+    padding: 40vh 0 10vh;
+    clip-path: polygon(0 10vh, 100% 0, 100% 100%, 0 calc(100% - 10vh));
+  }
+  
+  .process-header {
+    margin-bottom: 30px;
+    padding-left: 17%;
+    justify-content: flex-start;
+  }
+  
+  .process-title-svg {
+    width: 240px;
+  }
+
+  .process-row {
+    min-height: 200px;
+    margin-bottom: -30px;
+  }
+
+  .text-col {
+    padding-left: 5%;
+    padding-right: 0;
+  }
+
+  .process-card {
+    padding: 15px 12px;
+    border-width: 1px;
+  }
+
+  .step-badge {
+    width: 30px;
+    height: 20px;
+    font-size: 10px;
+    top: -10px;
+    left: 15px;
+  }
+
+  .step-title {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  
+  .step-body {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .image-col {
+    margin-left: -25%;
+  }
+
+  .process-photo {
+    height: 220px;
   }
 }
 </style>
