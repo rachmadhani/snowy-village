@@ -4,7 +4,7 @@ import type { Admin } from '@/stores/auth'
 export interface LoginResponse {
   access_token: string
   token_type: string
-  expires_in: number
+  // expires_in: number
   user: Admin
 }
 
