@@ -22,14 +22,7 @@ const router = createRouter({
         title: 'Calendar',
       },
     },
-    {
-      path: '/profile',
-      name: 'Profile',
-      component: () => import('../views/Others/UserProfile.vue'),
-      meta: {
-        title: 'Profile',
-      },
-    },
+
     {
       path: '/form-elements',
       name: 'Form Elements',

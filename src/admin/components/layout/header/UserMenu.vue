@@ -70,9 +70,7 @@ const authStore = useAuthStore()
 const router = useRouter()
 const toast = useToast()
 
-const menuItems = [
-  { href: '/admin/profile', icon: UserCircleIcon, text: 'Edit profile' },
-]
+const menuItems = []
 
 const toggleDropdown = () => {
   dropdownOpen.value = !dropdownOpen.value

@@ -252,11 +252,7 @@ const menuGroups = [
         name: "Locations",
         path: "/admin/locations",
       },
-      {
-        icon: UserCircleIcon,
-        name: "Profile",
-        path: "/admin/profile",
-      },
+
     ],
   },
 ];
