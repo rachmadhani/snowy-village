@@ -2,6 +2,10 @@
 import { ref } from 'vue';
 import FooterSection from '../components/FooterSection.vue';
 import Sidebar from '../components/Sidebar.vue';
+import { franchiseService } from '@/services/franchiseService';
+import { useToast } from 'vue-toastification';
+
+const toast = useToast();
 
 const formData = ref({
   name: '',
@@ -11,11 +15,29 @@ const formData = ref({
   inquiry: ''
 });
 
-const handleSubmit = () => {
-  console.log('Franchise Inquiry:', formData.value);
-  // Implementation for form submission would go here (e.g., API call)
-  alert('Thank you for your interest! We will get back to you soon.');
-  formData.value = { name: '', email: '', phone: '', location: '', inquiry: '' };
+const isSubmitting = ref(false);
+
+const handleSubmit = async () => {
+  if (isSubmitting.value) return;
+  
+  isSubmitting.value = true;
+  try {
+    await franchiseService.submit({
+      name: formData.value.name,
+      email: formData.value.email,
+      phone_number: formData.value.phone,
+      location: formData.value.location,
+      message: formData.value.inquiry
+    });
+    
+    toast.success('Thank you for your interest! We will get back to you soon.');
+    formData.value = { name: '', email: '', phone: '', location: '', inquiry: '' };
+  } catch (error) {
+    console.error('Failed to submit franchise inquiry:', error);
+    toast.error('Failed to submit inquiry. Please try again later.');
+  } finally {
+    isSubmitting.value = false;
+  }
 };
 </script>
 

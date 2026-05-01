@@ -54,6 +54,12 @@ const router = createRouter({
           meta: { title: 'Manage Locations' },
         },
         {
+          path: 'franchises',
+          name: 'Franchises',
+          component: () => import('../admin/views/Franchises/FranchiseList.vue'),
+          meta: { title: 'Manage Franchises' },
+        },
+        {
           path: 'profile',
           name: 'Profile',
           component: () => import('../admin/views/Others/UserProfile.vue'),

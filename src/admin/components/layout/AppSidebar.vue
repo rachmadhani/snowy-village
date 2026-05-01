@@ -252,7 +252,11 @@ const menuGroups = [
         name: "Locations",
         path: "/admin/locations",
       },
-
+      {
+        icon: MailIcon,
+        name: "Franchises",
+        path: "/admin/franchises",
+      },
     ],
   },
 ];
