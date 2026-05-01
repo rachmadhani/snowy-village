@@ -227,7 +227,7 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .drinks-section {
-    clip-path: polygon(0 0, 100% 12vh, 100% calc(100% - 12vh), 0 100%);
+    clip-path: polygon(0 0, 100% 4vh, 100% calc(100% - 12vh), 0 100%);
     margin-top: -12vh;
   }
 }

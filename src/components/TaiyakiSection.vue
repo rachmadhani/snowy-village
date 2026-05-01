@@ -168,7 +168,7 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .taiyaki-section {
-    clip-path: polygon(0 12vh, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 12vh, 200% 0, 100% 100%, 0 100%);
     margin-top: -12vh;
   }
   .taiyaki-title-svg {
