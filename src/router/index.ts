@@ -37,9 +37,7 @@ const router = createRouter({
       children: [
         {
           path: '',
-          name: 'Dashboard',
-          component: () => import('../admin/views/Ecommerce.vue'),
-          meta: { title: 'Dashboard' },
+          redirect: { name: 'Products' }
         },
         {
           path: 'products',

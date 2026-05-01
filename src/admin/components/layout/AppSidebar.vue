@@ -206,7 +206,7 @@
           </div>
         </div>
       </nav>
-      <SidebarWidget v-if="isExpanded || isHovered || isMobileOpen" />
+      <!-- SidebarWidget removed -->
     </div>
   </aside>
 </template>
@@ -230,7 +230,6 @@ import {
   ListIcon,
   PlugInIcon,
 } from "../../icons";
-import SidebarWidget from "./SidebarWidget.vue";
 import BoxCubeIcon from "@admin/icons/BoxCubeIcon.vue";
 import { useSidebar } from "@admin/composables/useSidebar";
 
