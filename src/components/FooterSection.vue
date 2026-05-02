@@ -9,7 +9,7 @@
         <a href="#" class="social-link">
           <img src="/footer-section/footer-facebook-icon.svg" alt="Facebook" class="social-svg" />
         </a>
-        <a href="#" class="social-link">
+        <a href="https://www.instagram.com/snowyvillagearizona/" class="social-link">
           <img src="/footer-section/footer-instagram-icon.svg" alt="Instagram" class="social-svg" />
         </a>
       </div>
