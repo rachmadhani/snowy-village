@@ -57,7 +57,7 @@ const closeMenu = () => {
           <nav class="overlay-nav">
             <ul class="primary-links">
               <li class="nav-item"><a href="/#products" @click="closeMenu">Menu</a></li>
-              <li class="nav-item"><a href="/franchise" @click="closeMenu">Franchise</a></li>
+              <!-- <li class="nav-item"><a href="/franchise" @click="closeMenu">Franchise</a></li> -->
               <li class="nav-item"><a href="/#locations" @click="closeMenu">Locations</a></li>
             </ul>
             <ul class="secondary-links">
