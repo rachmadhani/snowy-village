@@ -15,6 +15,11 @@ export interface FranchiseListResponse {
   data: FranchiseInquiry[]
 }
 
+export interface FranchiseSubmitResponse {
+  data: FranchiseInquiry
+  email_sent: boolean
+}
+
 export const franchiseService = {
   async getAll(): Promise<FranchiseListResponse> {
     const response = await api.get<FranchiseListResponse>('/franchises')
@@ -32,8 +37,8 @@ export const franchiseService = {
     phone_number: string
     location: string
     message: string
-  }): Promise<FranchiseInquiry> {
-    const response = await api.post<FranchiseInquiry>('/franchises', data)
+  }): Promise<FranchiseSubmitResponse> {
+    const response = await api.post<FranchiseSubmitResponse>('/franchises', data)
     return response.data
   },
 

@@ -22,7 +22,7 @@ const handleSubmit = async () => {
   
   isSubmitting.value = true;
   try {
-    await franchiseService.submit({
+    const result = await franchiseService.submit({
       name: formData.value.name,
       email: formData.value.email,
       phone_number: formData.value.phone,
@@ -30,7 +30,11 @@ const handleSubmit = async () => {
       message: formData.value.inquiry
     });
     
-    toast.success('Thank you for your interest! We will get back to you soon.');
+    if (result.email_sent) {
+      toast.success('Thank you! Your inquiry has been submitted and our team has been notified via email.');
+    } else {
+      toast.success('Thank you for your interest! We will get back to you soon.');
+    }
     formData.value = { name: '', email: '', phone: '', location: '', inquiry: '' };
   } catch (error) {
     console.error('Failed to submit franchise inquiry:', error);
@@ -66,13 +70,16 @@ const handleSubmit = async () => {
       <!-- Main Opportunity Box -->
       <main class="opportunity-container">
         <div class="opportunity-content">
-          <h3 class="opp-title">Opportunity awaits you. Join our growing family.</h3>
+          <h3 class="opp-title">A great opportunity awaits.</h3>
           <div class="opp-body">
             <p>
-              Snowy Village is the fastest growing bingsoo café in USA. In just a little over 2 years we have grown from one location to now across Canada. we are always looking for passionate partners to take on the new market with us.
+              Snowy Village has been serving authentic Korean bingsoo for over 10 years, building our brand through quality desserts, consistent recipes, and a memorable café experience.
             </p>
             <p>
-              Email us with inquiry and we will get back to you with all the tangible information you would need to own your very own Snowy Village Franchise.
+              We are now beginning a new chapter by expanding through carefully selected franchise partners. If you are passionate about Korean desserts and interested in bringing Snowy Village to your market, we would love to hear from you.
+            </p>
+            <p>
+              Please contact us with your inquiry, and our team will provide more information about available franchise opportunities.
             </p>
           </div>
         </div>
