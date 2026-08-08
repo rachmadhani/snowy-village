@@ -44,11 +44,21 @@ onUnmounted(() => {
         <!-- Description Grid -->
         <div class="descriptions-container">
           <div class="desc-card desc-left" ref="desc1Ref" :class="{ 'is-visible': isDesc1Visible }">
-            <img src="/taiyaki-section/taiyaki-description-1.svg" alt="Taiyaki Description Left" class="desc-svg" />
+            <div class="card-badge">01</div>
+            <h3 class="card-title">The Batter</h3>
+            <p class="card-desc">
+              Made with 100% natural butter in our dough.<br />
+              Prepared hot and fresh all the time.
+            </p>
           </div>
           
           <div class="desc-card desc-right" ref="desc2Ref" :class="{ 'is-visible': isDesc2Visible }">
-            <img src="/taiyaki-section/taiyaki-description-2.svg" alt="Taiyaki Description Right" class="desc-svg" />
+            <div class="card-badge">02</div>
+            <h3 class="card-title">The Fillings</h3>
+            <p class="card-desc">
+              Our Taiyaki comes with a variety of fillings.<br />
+              Red bean, Custard, Nutella, Cheese, and more.
+            </p>
           </div>
         </div>
       </div>
@@ -130,9 +140,15 @@ onUnmounted(() => {
 }
 
 .desc-card {
-  width: auto;
+  position: relative;
+  width: 320px;
+  /* background: #ffffff; */
+  border: 2px solid #000000;
+  padding: 42px 32px 32px 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   opacity: 0;
   transition: all 1s ease;
+  text-align: left;
 }
 
 .desc-left {
@@ -148,20 +164,50 @@ onUnmounted(() => {
   transform: translateX(0);
 }
 
-.desc-svg {
-  width: 100%;
-  max-width: 294px;
-  height: auto;
+.card-badge {
+  position: absolute;
+  top: -16px;
+  left: 24px;
+  width: 52px;
+  height: 32px;
+  background: #000000;
+  color: #B9C83E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: #111111;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.card-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #222222;
+  font-weight: 400;
+  margin: 0;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
   .descriptions-container {
     flex-direction: column;
-    gap: 40px;
+    gap: 50px;
   }
   .desc-card {
-    width: 90%;
+    width: 100%;
+    max-width: 340px;
     transform: translateY(30px);
   }
 }

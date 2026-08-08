@@ -47,9 +47,12 @@ onUnmounted(() => {
     
     <div class="drinks-overlay">
       <div class="drinks-container">
-        <!-- Left Side: Title -->
+        <!-- Left Side: Title & Description -->
         <div class="title-column" :class="{ 'animate-left': isVisible }">
-          <img src="/parallax-2-slide/parallax-2-title.svg" alt="Our Drinks" class="drinks-title-svg" />
+          <h2 class="drinks-main-title">Our Drinks</h2>
+          <p class="drinks-description">
+            Our Tea Proudly brewed by Red Straw. We use premium tea leaves, real fruit, and high-quality natural ingredients to create fresh, flavorful drinks in every cup.
+          </p>
         </div>
 
         <!-- Right Side: Drink Lists -->
@@ -101,7 +104,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 140%;
-  background-image: url('/parallax-2-slide/parallax-2-background.jpg');
+  background-image: url('/parallax-2-slide/redstraw.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.8;
@@ -142,10 +145,27 @@ onUnmounted(() => {
   transform: translateX(0);
 }
 
-.drinks-title-svg {
-  width: 332px;
-  height: auto;
-  filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+.drinks-main-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #c5d82d;
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7), 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.drinks-description {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #eeeeee;
+  font-weight: 300;
+  opacity: 0.9;
+  max-width: 480px;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .lists-column {
@@ -223,12 +243,23 @@ onUnmounted(() => {
   .title-column, .lists-column {
     max-width: 600px;
   }
+  .drinks-description {
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {
   .drinks-section {
     clip-path: polygon(0 0, 100% 4vh, 100% calc(100% - 12vh), 0 100%);
     margin-top: -12vh;
+  }
+  .drinks-main-title {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  .drinks-description {
+    font-size: 14px;
+    line-height: 1.6;
   }
 }
 </style>

@@ -7,6 +7,7 @@
         <div class="about-header">
           <h1 class="about-title">About</h1>
           <div class="about-divider"></div>
+          
           <p class="about-subtitle">
             Snowy Village, a dessert café<br>introducing healthy and fresh desserts
           </p>
@@ -14,13 +15,19 @@
 
         <div class="about-paragraphs">
           <p class="about-desc-text">
-            Snowy Village is leading the culture of Korean traditional dessert as the leading Korean dessert café brand in USA.
+            <b>Welcome to Snowy Village</b>
           </p>
           <p class="about-desc-text">
-            Introducing a healthy and fresh Korean desserts, new breed of dessert cafe; tradition meets modern 21st century; various healthy desserts that are creative and popular made with Korean traditional food ingredients of the four seasons are served.
+            Snowy Village is a modern Korean dessert café inspired by the soft refreshing taste of Korean shaved ice.
           </p>
           <p class="about-desc-text">
-            We continue to challenge the market and develop innovative items. Snowy Village stands at top, as being number one in North America, a result of the efforts that we make the place where our customers sympathize and enjoy to stay
+            We bring together fresh ingredients, seasonal flavors, beautiful presentation, and a warm café experience to create desserts that fell light, comforting, and memorable.
+          </p>
+          <p class="about-desc-text">
+            From our signature snow-like shaved ice to creative drinks and seasonal Korean treats, every menu item is crafted to be shared and enjoyed. 
+          </p>
+          <p class="about-desc-text">
+            Step into Snowy Village and experience a sweet escape where Korean tradition meets modern dessert culture.
           </p>
         </div>
       </div>
