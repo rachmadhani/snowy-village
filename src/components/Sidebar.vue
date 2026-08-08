@@ -64,6 +64,8 @@ const closeMenu = () => {
               <li class="nav-item"><a href="#about" @click="closeMenu">About Us</a></li>
               <!-- <li class="nav-item"><a href="#" @click="closeMenu">News</a></li> -->
               <li class="nav-item"><a href="/careers" @click="closeMenu">Careers</a></li>
+              <li class="nav-item"><a href="/franchise" @click="closeMenu">Contact Us</a></li>
+
             </ul>
           </nav>
 
